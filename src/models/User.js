@@ -1,25 +1,33 @@
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate'); //responsavel pela paginação dos meus produtos
 
-const productSchema = new mongoose.Schema({
-    title:{
+const userSchema = new mongoose.Schema({
+    name: {
         type: String,
         required: true
     },
-    description:{
+    name2: {
         type: String,
         required: true
     },
-    url:{
+    email: {
         type: String,
         required: true
     },
-    createdAt:{
+    telefone: {
+        type: Number,
+        required: true
+    },
+    datanasc: {
+        type: String,
+        required: true
+    },
+    createdAt: {
         type: Date,
         default: Date.now
     },
 });
 
-productSchema.plugin(mongoosePaginate);
+userSchema.plugin(mongoosePaginate);
 
-mongoose.model('Product', productSchema);
+mongoose.model('User', userSchema);
