@@ -22,6 +22,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    path: {
+        type: String
+    },
     createdAt: {
         type: Date,
         default: Date.now
@@ -30,4 +33,4 @@ const userSchema = new mongoose.Schema({
 
 userSchema.plugin(mongoosePaginate);
 
-mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', userSchema);

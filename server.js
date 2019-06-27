@@ -4,6 +4,7 @@ const requireDir = require('require-dir'); // faz um require automatico para tod
 const cors = require('cors');
 
 const app = express(); // executa a função do express dentro da variavel
+app.use(express.urlencoded({ extended: true })); //permite o envio de arquivos
 app.use(express.json()); //permite que eu envie dados no formado json para a aplicação e banco
 app.use(cors());//libera acesso publico, não só localhost
 

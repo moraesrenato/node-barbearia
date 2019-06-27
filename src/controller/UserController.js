@@ -27,4 +27,5 @@ module.exports = {
         const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
         return res.json(user);
     }
+
 }
