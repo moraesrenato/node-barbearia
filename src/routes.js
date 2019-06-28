@@ -2,13 +2,11 @@ const express = require('express');
 const routes = express.Router();
 const UserController = require('./controller/UserController');
 const mongoose = require('mongoose');
-const File = mongoose.model('File');
-const User = mongoose.model('User');
-const FileController = require('./controller/FileController');
+//const FileController = require('./controller/FileController');
 const MulterConfig = require('../multer');
 const upload = require('multer')(MulterConfig);
 
-routes.get('/users', UserController.listaItems);
+routes.get('/users', UserController.listaItems());
 routes.get('/users/:id', UserController.buscaItem);
 routes.post('/users', UserController.criaItem);
 routes.delete('/users/:id', UserController.deletaItem);
