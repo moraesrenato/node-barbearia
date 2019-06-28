@@ -2,11 +2,15 @@ const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate'); //responsavel pela paginação dos meus produtos
 
 const userSchema = new mongoose.Schema({
-    name: {
+    apelido: {
         type: String,
         required: true
     },
-    name2: {
+    senha: {
+        type: String,
+        required: true
+    },
+    nome: {
         type: String,
         required: true
     },
@@ -15,16 +19,10 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     telefone: {
-        type: Number,
-        required: true
-    },
-    datanasc: {
         type: String,
         required: true
     },
-    path: {
-        type: String
-    },
+    file: [{ type: mongoose.Schema.Types.ObjectId, ref: 'File' }],
     createdAt: {
         type: Date,
         default: Date.now
