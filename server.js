@@ -5,6 +5,7 @@ const cors = require('cors');
 const path = require('path');
 
 const app = express();
+const server = require('http').Server(app);
 app.use(cors()); //libera acesso publico, não só localhost// executa a função do express dentro da variavel
 
 app.use(express.urlencoded({ extended: true })); //permite o envio de arquivos
@@ -20,4 +21,4 @@ requireDir('./src/models');
 
 app.use('/api', require('./src/routes')); //aceita todas os tipos de requisições vindo das rotas (?)
 
-app.listen(process.env.PORT || 3030); //determina qual porta a api vai rodar
+server.listen(process.env.PORT || 3030); //determina qual porta a api vai rodar
