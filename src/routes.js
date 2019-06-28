@@ -20,7 +20,7 @@ routes.post('/nova-imagem/:id', upload.single('file'), (req, res, next) => {
     if (req.file) {
         //FileController.pathImagem();
 
-        const { filename } = req.file;
+        //const { filename } = req.file;
         //Vamos imprimir na tela o objeto com os dados do arquivo armazenado
         return res.send(req.file);
     }
