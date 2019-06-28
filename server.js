@@ -9,17 +9,17 @@ app.use(cors()); //libera acesso publico, não só localhost// executa a funçã
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
-//io.on('connection', socket => { // cria rooms para cada usuario na aplicação
-//   socket.on('connectRoom', user => {
-//       socket.join(user);
-//    })
-//});
+io.on('connection', socket => { // cria rooms para cada usuario na aplicação
+    socket.on('connectRoom', user => {
+        socket.join(user);
+    })
+});
 
-//app.use((req, res, next) => {
-//    req.io = io;
+app.use((req, res, next) => {
+    req.io = io;
 
-//    return next();
-//});
+    return next();
+});
 
 app.use(express.urlencoded({ extended: true })); //permite o envio de arquivos
 app.use(express.json()); //permite que eu envie dados no formado json para a aplicação e banco
