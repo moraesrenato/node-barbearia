@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    file: [{ type: mongoose.Schema.Types.ObjectId, ref: 'File' }],
+    file: [{ type: String }],
     createdAt: {
         type: Date,
         default: Date.now
