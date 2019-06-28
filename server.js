@@ -6,9 +6,6 @@ const cors = require('cors');
 const app = express();
 app.use(cors()); //libera acesso publico, não só localhost// executa a função do express dentro da variavel
 
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
-
 app.use(express.urlencoded({ extended: true })); //permite o envio de arquivos
 app.use(express.json()); //permite que eu envie dados no formado json para a aplicação e banco
 
@@ -21,4 +18,4 @@ requireDir('./src/models');
 
 app.use('/api', require('./src/routes')); //aceita todas os tipos de requisições vindo das rotas (?)
 
-server.listen(process.env.PORT || 3030); //determina qual porta a api vai rodar
+app.listen(process.env.PORT || 3030); //determina qual porta a api vai rodar

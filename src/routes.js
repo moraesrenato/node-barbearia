@@ -9,24 +9,7 @@ routes.get('/users', UserController.listaItems);
 routes.get('/users/:id', UserController.buscaItem);
 routes.post('/users', UserController.criaItem);
 routes.delete('/users/:id', UserController.deletaItem);
-routes.put('/users/:id', UserController.update); // ?
-
-routes.post('/imagem/:id', upload.single('file'), FileController.pathImagem); //teste
-
-routes.post('/nova-imagem/:id', upload.single('file'), (req, res, next) => {
-
-    //Se houve sucesso no armazenamento
-    if (req.file) {
-        FileController.pathImagem();
-
-        //Vamos imprimir na tela o objeto com os dados do arquivo armazenado
-        return res.send(req.file);
-    }
-
-    //Se o objeto req.file for undefined, ou seja, não houve sucesso, vamos imprimir um erro!
-    return res.send('Houve erro no upload!');
-
-
-});
+routes.put('/users/:id', UserController.update);
+routes.post('/imagem/:id', upload.single('file'), FileController.pathImagem);
 
 module.exports = routes;

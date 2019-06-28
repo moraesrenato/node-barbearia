@@ -7,15 +7,15 @@ module.exports = {
         const user = await User.findById(req.params.id);
 
         const file = await File.create({
-            path: req.originalname,
-            title: req.filename
+            path: req.file.path,
+            title: req.file.filename,
         });
 
-        user.findByIdAndUpdate(req.params.id, file, { new: true });
+        user.file = req.file.filename;
         //user.file.create(file);
 
         await user.save();
 
-        return res.json(file);
+        return res.json(req.file);
     }
 }
