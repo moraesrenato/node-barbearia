@@ -1,10 +1,7 @@
 const express = require('express');
 const routes = express.Router();
 const UserController = require('./controller/UserController');
-const mongoose = require('mongoose');
-const File = mongoose.model('File');
-const User = mongoose.model('User');
-const FileController = require('./controller/FileController');
+//const FileController = require('./controller/FileController');
 const MulterConfig = require('../multer');
 const upload = require('multer')(MulterConfig);
 
