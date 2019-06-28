@@ -23,6 +23,9 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     file: {
+        type: String //{ type: mongoose.Schema.Types.ObjectId, ref: "File" }
+    },
+    url: {
         type: String
     },
     createdAt: {

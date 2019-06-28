@@ -11,11 +11,11 @@ module.exports = {
             title: req.file.filename,
         });
 
-        user.file = req.file.filename;
-        //user.file.create(file);
+        user.file = file._id;
+        user.url = file.url;
 
         await user.save();
 
-        return res.json(req.file);
+        return res.json(file);
     }
 }
