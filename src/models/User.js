@@ -22,7 +22,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    file: [{ type: String }],
+    file: {
+        type: String
+    },
     createdAt: {
         type: Date,
         default: Date.now

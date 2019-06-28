@@ -1,7 +1,7 @@
 const express = require('express');
 const routes = express.Router();
 const UserController = require('./controller/UserController');
-//const FileController = require('./controller/FileController');
+const FileController = require('./controller/FileController');
 const MulterConfig = require('../multer');
 const upload = require('multer')(MulterConfig);
 
@@ -11,13 +11,14 @@ routes.post('/users', UserController.criaItem);
 routes.delete('/users/:id', UserController.deletaItem);
 routes.put('/users/:id', UserController.update); // ?
 
+routes.post('/imagem/:id', upload.single('file'), FileController.pathImagem); //teste
+
 routes.post('/nova-imagem/:id', upload.single('file'), (req, res, next) => {
 
     //Se houve sucesso no armazenamento
     if (req.file) {
-        //FileController.pathImagem();
+        FileController.pathImagem();
 
-        //const { filename } = req.file;
         //Vamos imprimir na tela o objeto com os dados do arquivo armazenado
         return res.send(req.file);
     }
