@@ -11,5 +11,6 @@ routes.post('/users', UserController.criaItem);
 routes.delete('/users/:id', UserController.deletaItem);
 routes.put('/users/:id', UserController.update);
 routes.post('/imagem/:id', upload.single('file'), FileController.pathImagem);
+routes.get('login', UserController.login);
 
 module.exports = routes;

@@ -19,6 +19,6 @@ mongoose.connect('mongodb+srv://Loading:321321321@minhaapi-zcfbl.mongodb.net/tes
 
 requireDir('./src/models');
 
-app.use('/api', require('./src/routes')); //aceita todas os tipos de requisições vindo das rotas (?)
+app.use('/api', require('./src/routes')); //aceita todas os tipos de requisições vindo das rotas
 
 server.listen(process.env.PORT || 3030); //determina qual porta a api vai rodar

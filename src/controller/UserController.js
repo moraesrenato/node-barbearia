@@ -26,6 +26,19 @@ module.exports = {
     async update(req, res) {
         const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
         return res.send(user);
+    },
+
+    async login(req, res) {
+        const user = await User.find();
+        let arrayLogin = {};
+
+        user.forEach(function (user) {
+            if (user.apelido === req.body.apelido || user.senha === req.body.senha) {
+                return res.json('FOI');
+            } else {
+                return res.json('NAO FOI');
+            }
+        })
     }
 
 }
